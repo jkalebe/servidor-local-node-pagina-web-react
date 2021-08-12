@@ -30,7 +30,7 @@ class DataTableComp extends Component {
     }
 
     shouldComponentUpdate(nextProps) {
-        if(nextProps.data.length !== this.props.data.length){
+        if(nextProps.data !== this.props.data){
             this.reloadTableData(nextProps.data)
         }
         return false;

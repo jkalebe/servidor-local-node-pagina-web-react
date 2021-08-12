@@ -17,9 +17,9 @@ let db = new sqlite3.Database(DBSOURCE, (err)=>{
         )`,
         (err) => {
             if(err) {
-                console.log("error database")
+                console.log("Table already created")
             }else{
-                console.log("database connected with success")
+                console.log("Table USER created with success")
             }
         })
     }

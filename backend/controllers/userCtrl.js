@@ -4,8 +4,8 @@ const userCtrl = {
     getList: async(req, res) => {
 
         try {
-            const sql = "select * from user where name = ?"
-            const name = req.headers.name
+            const sql = "select * from user where name LIKE ?"
+            const name = '%' + req.headers.name + '%'
             console.log(req.headers.name)
             const params = [name]
             db.all(sql, params, (err, rows) => {

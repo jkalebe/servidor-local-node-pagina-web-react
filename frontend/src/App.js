@@ -33,7 +33,7 @@ function App() {
       <input name="name" onChange={handleChangeInput} placeholder="Seu nome"></input>
       <button onClick={searchName} >Buscar</button>
       <div className="output">
-        <DataTablesComp  data={data}/>
+        <DataTablesComp className="datatable" data={data}/>
       </div>
 
     </div>
