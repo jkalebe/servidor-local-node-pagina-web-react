@@ -25,6 +25,7 @@ const userCtrl = {
 
     registerUser: async(req, res) =>{
         try {
+            console.log(req.body)
             var insert = 'INSERT INTO user (name, idade, cpf, data_nasc) VALUES(?,?,?,?)';
             const {name, idade, cpf, data_nasc} = req.body
             const params = [name, idade, cpf, data_nasc]

@@ -22,6 +22,7 @@ class DataTableComp extends Component {
             data: this.props.data,
             columns: columns,
             ordering: false,
+            language: {emptyTable: 'Search a name'}
         });
     }
 
