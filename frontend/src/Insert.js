@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios'
+import Cpf from '@react-br-forms/cpf-cnpj-mask'
 
 const initialState = {
     name: '',
@@ -30,6 +31,7 @@ const Insert = () => {
             if(res.data.message == "success")
                 setMessage(true)
             console.log(user)
+            window.location.reload()
         } catch (error) {
             
         }
@@ -39,8 +41,11 @@ const Insert = () => {
         <div>
             <input onChange={handleChangeInput} name="name" placeholder="Seu nome"></input>
             <input onChange={handleChangeInput} name="idade" placeholder="Idade"></input>
-            <input onChange={handleChangeInput} name="cpf" placeholder="CPF"></input>
-            <input onChange={handleChangeInput} name="data_nasc" placeholder="Data de Nascimento"></input>
+            <Cpf type="tel" placeholder="CPF" value = {user.cpf} onChange={(event, type) =>{
+                setUser({...user, cpf:event.target.value})
+                console.log(type)
+            }}/>
+            <input onChange={handleChangeInput} type="date" name="data_nasc" placeholder="Data de Nascimento"></input>
 
             <button style={message ? {backgroundColor: '#7d7'} : {backgroundColor: '#111'}} onClick={sendData}>{message ? 'Enviado' : 'Enviar'}</button>
         </div>
